@@ -10,7 +10,7 @@ st.set_page_config(page_title="Researcher Profile | Nolu Didiza", layout="wide")
 st.sidebar.title("Navigation")
 menu = st.sidebar.radio(
     "Go to:",
-    ["Researcher Profile", "Publications", "STEM Data Explorer", "Contact"],
+    ["Researcher Profile", "Publications", "Contact"],
 )
 
 
