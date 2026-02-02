@@ -10,32 +10,11 @@ st.set_page_config(page_title="Researcher Profile | Nolu Didiza", layout="wide")
 st.sidebar.title("Navigation")
 menu = st.sidebar.radio(
     "Go to:",
-    ["Researcher Profile", "Publications", "STEM Data Explorer", "Contact"],
+    ["Researcher Profile", "Publications", "Contact"],
 )
 
 # -------------------------
-# Dummy STEM datasets (keep from lecture)
-# -------------------------
-physics_data = pd.DataFrame({
-    "Experiment": ["Alpha Decay", "Beta Decay", "Gamma Ray Analysis", "Quark Study", "Higgs Boson"],
-    "Energy (MeV)": [4.2, 1.5, 2.9, 3.4, 7.1],
-    "Date": pd.date_range(start="2024-01-01", periods=5),
-})
 
-astronomy_data = pd.DataFrame({
-    "Celestial Object": ["Mars", "Venus", "Jupiter", "Saturn", "Moon"],
-    "Brightness (Magnitude)": [-2.0, -4.6, -1.8, 0.2, -12.7],
-    "Observation Date": pd.date_range(start="2024-01-01", periods=5),
-})
-
-weather_data = pd.DataFrame({
-    "City": ["Cape Town", "London", "New York", "Tokyo", "Sydney"],
-    "Temperature (°C)": [25, 10, -3, 15, 30],
-    "Humidity (%)": [65, 70, 55, 80, 50],
-    "Recorded Date": pd.date_range(start="2024-01-01", periods=5),
-})
-
-# -------------------------
 # App sections
 # -------------------------
 if menu == "Researcher Profile":
@@ -82,12 +61,52 @@ if menu == "Researcher Profile":
     st.divider()
 
     # Experience
-    st.header("Professional Experience")
-    st.write("**Administrative Assistant (2017–Present)** — DSI-NRF Centre of Excellence in Food Security, University of the Western Cape")
-    st.write("- Support logistics, travel, and coordination of collaborative research activities")
-    st.write("- Assist in annual reporting, database management, and academic event organization")
-    st.write("- Facilitate engagement between researchers, students, and external partners")
-    st.write("- Involved in documentation and dissemination of food systems knowledge and learning exchanges")
+   st.header("Research Experience")
+
+st.subheader("Research Assistant – AGRI-COOL Project")
+st.caption("Horizon Europe–funded project | Socio-Economic Impact Assessment (Task 6.4)")
+
+st.write(
+    "I am currently working as a **Research Assistant on the AGRI-COOL project**, "
+    "which focuses on advancing sustainable cooling and renewable energy solutions "
+    "within agri-food systems, with particular attention to smallholder and emerging farmers."
+)
+
+st.markdown("### Research Background")
+
+st.write(
+    "Agricultural systems globally are under increasing pressure from climate change, "
+    "rising energy costs, and growing demands for sustainable food production. In South Africa, "
+    "these pressures are particularly acute for smallholder and emerging farmers, who often "
+    "operate under conditions of energy insecurity, limited access to capital, and inadequate "
+    "post-harvest infrastructure."
+)
+
+st.write(
+    "Post-harvest losses linked to insufficient cold-chain capacity remain a major constraint "
+    "to food security, income stability, and market participation among small-scale producers."
+)
+
+st.write(
+    "In response to these challenges, renewable energy–based agricultural innovations such as "
+    "**agrivoltaics**, which integrate solar energy generation with agricultural production, "
+    "have gained increasing attention. These systems offer the potential to reduce energy costs, "
+    "improve land-use efficiency, and enhance climate resilience."
+)
+
+st.write(
+    "However, despite growing technical evidence of their benefits, adoption among smallholder "
+    "farmers in the Global South remains limited. Emerging research suggests that this is driven "
+    "not only by technical or economic barriers, but also by **social, behavioural, and institutional factors**, "
+    "including perceived risk, limited access to trusted information, and weak extension systems."
+)
+
+st.write(
+    "Within the AGRI-COOL project, my research contributes to **Task 6.4: Socio-Economic Impact Assessment**, "
+    "examining the behavioural, social, and contextual dimensions influencing the adoption of "
+    "agrivoltaic systems and solar-powered cold-chain technologies among smallholder and emerging "
+    "farmers in the Western Cape, South Africa."
+)
 
     st.divider()
 
@@ -97,7 +116,33 @@ if menu == "Researcher Profile":
     st.write("**Software:** Atlas.ti, SPSS, Microsoft Office")
     st.write("**Languages:** English, isiXhosa (fluent); French (in progress)")
 
-    st.divider()
+ st.divider()
+st.header("Achievements & Professional Development")
+
+st.subheader("Data Analysis & Data Science Training")
+
+st.write(
+    "Successfully completed structured training in **Data Analysis and Data Science**, "
+    "with a strong focus on applied skills for research and real-world problem solving."
+)
+
+st.markdown("**Key competencies developed include:**")
+st.write(
+    "- Python programming for data analysis\n"
+    "- Data cleaning and preprocessing (Pandas, NumPy)\n"
+    "- Exploratory Data Analysis (EDA)\n"
+    "- Data visualisation (Matplotlib, Plotly, Streamlit)\n"
+    "- Working with CSV files and real-world datasets\n"
+    "- Building interactive dashboards using Streamlit\n"
+    "- Version control and collaboration using GitHub"
+)
+
+st.write(
+    "This training strengthened my ability to support empirical research, "
+    "socio-economic analysis, and evidence-based decision-making in interdisciplinary projects."
+)
+
+
 
     # Community engagement
     st.header("Community Engagement")
@@ -136,36 +181,6 @@ elif menu == "Publications":
     else:
         st.info("Upload a CSV to display and explore your publications.")
 
-elif menu == "STEM Data Explorer":
-    st.title("STEM Data Explorer")
-    st.sidebar.header("Data Selection")
-
-    data_option = st.sidebar.selectbox(
-        "Choose a dataset to explore",
-        ["Physics Experiments", "Astronomy Observations", "Weather Data"]
-    )
-
-    if data_option == "Physics Experiments":
-        st.write("### Physics Experiment Data")
-        energy_filter = st.slider("Filter by Energy (MeV)", 0.0, 10.0, (0.0, 10.0))
-        filtered = physics_data[physics_data["Energy (MeV)"].between(*energy_filter)]
-        st.dataframe(filtered, use_container_width=True)
-
-    elif data_option == "Astronomy Observations":
-        st.write("### Astronomy Observation Data")
-        brightness_filter = st.slider("Filter by Brightness (Magnitude)", -15.0, 5.0, (-15.0, 5.0))
-        filtered = astronomy_data[astronomy_data["Brightness (Magnitude)"].between(*brightness_filter)]
-        st.dataframe(filtered, use_container_width=True)
-
-    else:
-        st.write("### Weather Data")
-        temp_filter = st.slider("Filter by Temperature (°C)", -10.0, 40.0, (-10.0, 40.0))
-        humidity_filter = st.slider("Filter by Humidity (%)", 0, 100, (0, 100))
-        filtered = weather_data[
-            weather_data["Temperature (°C)"].between(*temp_filter) &
-            weather_data["Humidity (%)"].between(*humidity_filter)
-        ]
-        st.dataframe(filtered, use_container_width=True)
 
 elif menu == "Contact":
     st.title("Contact")
