@@ -132,7 +132,6 @@ if menu == "Researcher Profile":
         "- Building interactive dashboards using Streamlit\n"
         "- Version control and collaboration using GitHub"
     )
-st.divider()
 
     # Community engagement
     st.header("Community Engagement")
