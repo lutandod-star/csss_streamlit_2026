@@ -114,12 +114,13 @@ if menu == "Researcher Profile":
 
     # Achievements
     st.header("Achievements & Professional Development")
-    st.subheader("Data Analysis & Data Science Training")
+    st.subheader("Data Science with Python")
 
-    st.write(
-        "Successfully completed structured training in **Data Analysis and Data Science**, "
-        "with a strong focus on applied skills for research and real-world problem solving."
-    )
+   st.write(
+    "This training strengthened my capacity to support empirical research, "
+    "data-driven socio-economic analysis, and evidence-based decision-making "
+    "in interdisciplinary and policy-relevant projects."
+)
 
     st.markdown("**Key competencies developed include:**")
     st.write(
