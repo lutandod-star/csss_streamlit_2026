@@ -112,15 +112,15 @@ if menu == "Researcher Profile":
 
     st.divider()
 
-    # Achievements
+       # Achievements
     st.header("Achievements & Professional Development")
     st.subheader("Data Science with Python")
 
-   st.write(
-    "This training strengthened my capacity to support empirical research, "
-    "data-driven socio-economic analysis, and evidence-based decision-making "
-    "in interdisciplinary and policy-relevant projects."
-)
+    st.write(
+        "This training strengthened my capacity to support empirical research, "
+        "data-driven socio-economic analysis, and evidence-based decision-making "
+        "in interdisciplinary and policy-relevant projects."
+    )
 
     st.markdown("**Key competencies developed include:**")
     st.write(
@@ -132,13 +132,7 @@ if menu == "Researcher Profile":
         "- Building interactive dashboards using Streamlit\n"
         "- Version control and collaboration using GitHub"
     )
-
-    st.write(
-        "This training strengthened my ability to support empirical research, "
-        "socio-economic analysis, and evidence-based decision-making in interdisciplinary projects."
-    )
-
-    st.divider()
+st.divider()
 
     # Community engagement
     st.header("Community Engagement")
